@@ -1,0 +1,46 @@
+﻿@model IEnumerable<masGlobalWeb.Common.Models.Employees>
+
+@{
+    ViewBag.Title = "Employees";
+}
+
+<h2>Employees</h2>
+
+@using (Html.BeginForm("Index", "Employees", FormMethod.Post))
+{
+    <span>Employe Id:</span> @Html.TextBox("id")
+    <input type="submit" value="Search" class="btn-info" />
+    <br />
+    <br />
+    <table class="table table-striped w-auto">
+        
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.roleName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.anualSalary)
+                </th>
+            </tr>
+        
+        @foreach (var item in Model)
+        {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.roleName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.anualSalary)
+        </td>
+    </tr>
+        }
+
+    </table>
+}
+
